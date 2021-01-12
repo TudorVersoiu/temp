@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
+import {UserService} from "../../Services/UserService";
 
 @Component({
   selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  templateUrl: 'view.page.html',
+  styleUrls: ['view.page.scss']
 })
-export class Tab3Page {
+export class ViewPage {
 
-  constructor() {}
-
+  constructor(
+      private userService: UserService
+  ) {
+    this.selected_user = userService.get_selected_user();
+    console.log(this.selected_user);
+  }
+  public selected_user;
 }
